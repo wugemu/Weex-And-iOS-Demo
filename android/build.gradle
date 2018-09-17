@@ -1,0 +1,44 @@
+
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.3'
+    }
+}
+
+plugins {
+    id "de.undercouch.download" version "3.2.0"
+//    id "com.github.dcendents.android-maven" version "1.5"
+}
+
+subprojects {
+    repositories {
+        mavenLocal()
+        jcenter()
+        maven {
+            url 'https://maven.google.com'
+        }
+    }
+    buildscript {
+        dependencies {
+            classpath 'com.android.tools.build:gradle:2.3.3'
+            classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.0'
+            classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
+        }
+    }
+    ext {
+        compileSdkVersion=26
+        buildToolsVersion="26.0.3"
+        minSdkVersion=14
+        targetSdkVersion=26
+        supportLibVersion="26.0.2"
+        fastjsonLibVersion="1.1.46.android"
+    }
+}
+
+//task clean(type: Delete) {
+//    delete rootProject.buildDir
+//}
